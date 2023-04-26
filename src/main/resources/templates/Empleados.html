@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Empleados</title>
+<body>
+
+<a class="nav-link" th:href="@{'/Empleados'}">Empleados</a>
+<a class="nav-link" th:href="@{'/Historial'}">Historial<span class="sr-only">(current)</span></a>
+<a class="nav-link" th:href="@{'/Reportes'}">Reportes</a>
+<div class="container">
+  <img th:src="@{travel_trip_logo.png}">
+  <div class="container mt-5">
+    <main>
+      <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Lista Doctores</h1>
+        <table class="table table-sm">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Puesto</th>
+            <th>Departamento</th>
+            <th>Ciudad</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr th:each="Employee, i: ${listaEmpleados}">
+            <td th:text="${i.index +1}"></td>
+            <td th:text="${Employee.firstName}"></td>
+            <td th:text="${Employee.lastName}"></td>
+            <td th:text="${Employee.job.jobTitle}"></td>
+            <td th:text="${Employee.departamentId.departamentName}"></td>
+            <td th:text="${Employee.departamentId.location.stateProvince}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/Empleados/editar' + '?id=' + ${doctor.id}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger" th:href="@{'/Empleados/borrar' + '?id=' + ${doctor.id}}">Borrar</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
