@@ -9,7 +9,7 @@ public class Departaments {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "department_id")
-    private int jobId;
+    private int departmentId;
 
     @Column(name = "department_name",nullable = false)
     private String departmentName;
@@ -22,12 +22,12 @@ public class Departaments {
     @JoinColumn(name = "location_id")
     private Locations location;
 
-    public int getJobId() {
-        return jobId;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public void setJobId(int jobId) {
-        this.jobId = jobId;
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getDepartmentName() {

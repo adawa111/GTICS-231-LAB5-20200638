@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("")
 public class controllerBase {
-    @RequestMapping("/**")
+    @RequestMapping(value = {"", "/", "/listar"})
     public String handleDefault() {
+
         return "Recursos Humanos - TravelTrip"; // Nombre de la vista predeterminada
     }
 
