@@ -10,7 +10,7 @@ public class Jobs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "job_id")
-    private int jobId;
+    private String jobId;
 
     @Column(name = "job_title",nullable = false)
     private String jobTitle;
@@ -21,11 +21,11 @@ public class Jobs {
     @Column(name = "max_salary")
     private int maxSalary;
 
-    public int getJobId() {
+    public String getJobId() {
         return jobId;
     }
 
-    public void setJobId(int jobId) {
+    public void setJobId(String jobId) {
         this.jobId = jobId;
     }
 

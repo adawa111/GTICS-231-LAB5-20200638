@@ -3,16 +3,16 @@ package com.example.lab5.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "departaments")
+@Table(name = "departments")
 public class Departaments {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @Column(name = "departament_id")
+    @Column(name = "department_id")
     private int jobId;
 
-    @Column(name = "departament_name",nullable = false)
-    private String departamentName;
+    @Column(name = "department_name",nullable = false)
+    private String departmentName;
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
@@ -30,12 +30,12 @@ public class Departaments {
         this.jobId = jobId;
     }
 
-    public String getDepartamentName() {
-        return departamentName;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setDepartamentName(String departamentName) {
-        this.departamentName = departamentName;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     public Employees getManager() {

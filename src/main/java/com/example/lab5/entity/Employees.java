@@ -10,7 +10,7 @@ public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employees", nullable = false)
+    @Column(name = "employee_id", nullable = false)
     private int employeeId;
 
     @Column(name = "first_name")
@@ -34,23 +34,23 @@ public class Employees {
     @Column(name = "salary")
     private double salary;
 
-    @Column(name = "commission_pct")
-    private double commissionPct;
+    @Column(name = "commission_pct", nullable = true)
+    private Double commissionPct;
 
-    @Column(name = "enable")
-    private int enable;
+    @Column(name = "enabled")
+    private int enabled;
 
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Jobs job;
 
     @ManyToOne
-    @JoinColumn(name = "manager_id")
+    @JoinColumn(name = "manager_id", nullable = true)
     private Employees manager;
 
     @ManyToOne
-    @JoinColumn(name = "departament_id")
-    private Departaments departamentId;
+    @JoinColumn(name = "department_id")
+    private Departaments departmentId;
 
     public int getEmployeeId() {
         return employeeId;
@@ -116,20 +116,21 @@ public class Employees {
         this.salary = salary;
     }
 
-    public double getCommissionPct() {
+
+    public Double getCommissionPct() {
         return commissionPct;
     }
 
-    public void setCommissionPct(double commissionPct) {
+    public void setCommissionPct(Double commissionPct) {
         this.commissionPct = commissionPct;
     }
 
-    public int getEnable() {
-        return enable;
+    public int getEnabled() {
+        return enabled;
     }
 
-    public void setEnable(int enable) {
-        this.enable = enable;
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 
     public Jobs getJob() {
@@ -148,12 +149,12 @@ public class Employees {
         this.manager = manager;
     }
 
-    public Departaments getDepartamentId() {
-        return departamentId;
+    public Departaments getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartamentId(Departaments departamentId) {
-        this.departamentId = departamentId;
+    public void setDepartmentId(Departaments departmentId) {
+        this.departmentId = departmentId;
     }
 }
 
